@@ -1,0 +1,420 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Your country' %}
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+
+
+<form novalidate method="post"> 
+
+
+{{ govukSelect({
+  id: "[new][country]",
+  name: "[new][country]",
+  classes: "countryAutocomplete" ,
+  label: {
+    text: pageName ,
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  value: data.new.country,
+
+  items: [
+    {
+    value:"" ,
+    text: ""
+     
+    } ,
+    {
+      value: "Afghanistan",
+      text: "Afghanistan"
+    },
+    {
+      value: "Albania",
+      text: "Albania"
+    },
+    {
+      value: "Algeria",
+      text: "Algeria"
+    },
+    {
+      value: "Andorra",
+      text: "Andorra"
+    },
+    {
+      value: "Angola",
+      text: "Angola"
+    },
+    {
+      value: "Antigua and Barbuda",
+      text: "Antigua and Barbuda"
+    },
+    {
+      value: "Argentina",
+      text: "Argentina"
+    },
+    {
+      value: "Armenia",
+      text: "Armenia"
+    },
+    {
+      value: "Australia",
+      text: "Australia"
+    },
+    {
+      value: "Austria",
+      text: "Austria"
+    },
+    {
+      value: "Azerbaijan",
+      text: "Azerbaijan"
+    },
+    {
+      value: "Bahamas",
+      text: "Bahamas"
+    },
+    {
+      value: "Bahrain",
+      text: "Bahrain"
+    },
+    {
+      value: "Bangladesh",
+      text: "Bangladesh"
+    },
+    {
+      value: "Barbados",
+      text: "Barbados"
+    },
+    {
+      value: "Belarus",
+      text: "Belarus"
+    },
+    {
+      value: "Belgium",
+      text: "Belgium"
+    },
+    {
+      value: "Belize",
+      text: "Belize"
+    },
+    {
+      value: "Benin",
+      text: "Benin"
+    },
+    {
+      value: "Bhutan",
+      text: "Bhutan"
+    },
+    {
+      value: "Bolivia",
+      text: "Bolivia"
+    },
+    {
+      value: "Bosnia and Herzegovina",
+      text: "Bosnia and Herzegovina"
+    },
+    {
+      value: "Botswana",
+      text: "Botswana"
+    },
+    {
+      value: "Brazil",
+      text: "Brazil"
+    },
+    {
+      value: "Brunei",
+      text: "Brunei"
+    },
+    {
+      value: "Bulgaria",
+      text: "Bulgaria"
+    },
+    {
+      value: "Burkina Faso",
+      text: "Burkina Faso"
+    },
+    {
+      value: "Burundi",
+      text: "Burundi"
+    },
+    {
+      value: "Cabo Verde",
+      text: "Cabo Verde"
+    },
+    {
+      value: "Cambodia",
+      text: "Cambodia"
+    },
+    {
+      value: "Cameroon",
+      text: "Cameroon"
+    },
+    {
+      value: "Canada",
+      text: "Canada"
+    },
+    {
+      value: "Central African Republic",
+      text: "Central African Republic"
+    },
+    {
+      value: "Chad",
+      text: "Chad"
+    },
+    {
+      value: "Chile",
+      text: "Chile"
+    },
+    {
+      value: "China",
+      text: "China"
+    },
+    {
+      value: "Colombia",
+      text: "Colombia"
+    },
+    {
+      value: "Comoros",
+      text: "Comoros"
+    },
+    {
+      value: "Congo (Congo-Brazzaville)",
+      text: "Congo (Congo-Brazzaville)"
+    },
+    {
+      value: "Costa Rica",
+      text: "Costa Rica"
+    },
+    {
+      value: "Croatia",
+      text: "Croatia"
+    },
+    {
+      value: "Cuba",
+      text: "Cuba"
+    },
+    {
+      value: "Cyprus",
+      text: "Cyprus"
+    },
+    {
+      value: "Czechia (Czech Republic)",
+      text: "Czechia (Czech Republic)"
+    },
+    {
+      value: "Democratic Republic of the Congo (Congo-Kinshasa)",
+      text: "Democratic Republic of the Congo (Congo-Kinshasa)"
+    },
+    {
+      value: "Denmark",
+      text: "Denmark"
+    },
+    {
+      value: "Djibouti",
+      text: "Djibouti"
+    },
+    {
+      value: "Dominica",
+      text: "Dominica"
+    },
+    {
+      value: "Dominican Republic",
+      text: "Dominican Republic"
+    },
+    {
+      value: "East Timor (Timor-Leste)",
+      text: "East Timor (Timor-Leste)"
+    },
+    {
+      value: "Ecuador",
+      text: "Ecuador"
+    },
+    {
+      value: "Egypt",
+      text: "Egypt"
+    },
+    {
+      value: "El Salvador",
+      text: "El Salvador"
+    },
+    {
+      value: "Equatorial Guinea",
+      text: "Equatorial Guinea"
+    },
+    {
+      value: "Eritrea",
+      text: "Eritrea"
+    },
+    {
+      value: "Estonia",
+      text: "Estonia"
+    },
+    {
+      value: "Eswatini (fmr. 'Swaziland')",
+      text: "Eswatini (fmr. 'Swaziland')"
+    },
+    {
+      value: "Ethiopia",
+      text: "Ethiopia"
+    },
+    {
+      value: "Fiji",
+      text: "Fiji"
+    },
+    {
+      value: "Finland",
+      text: "Finland"
+    },
+    {
+      value: "France",
+      text: "France"
+    },
+    {
+      value: "Gabon",
+      text: "Gabon"
+    },
+    {
+      value: "Gambia",
+      text: "Gambia"
+    },
+    {
+      value: "Georgia",
+      text: "Georgia"
+    },
+    {
+      value: "Germany",
+      text: "Germany"
+    },
+    {
+      value: "Ghana",
+      text: "Ghana"
+    },
+    {
+      value: "Greece",
+      text: "Greece"
+    },
+    {
+      value: "Grenada",
+      text: "Grenada"
+    },
+    {
+      value: "Guatemala",
+      text: "Guatemala"
+    },
+    {
+      value: "Guinea",
+      text: "Guinea"
+    },
+    {
+      value: "Guinea-Bissau",
+      text: "Guinea-Bissau"
+    },
+    {
+      value: "Guyana",
+      text: "Guyana"
+    },
+    {
+      value: "Haiti",
+      text: "Haiti"
+    },
+    {
+      value: "Holy See",
+      text: "Holy See"
+    },
+    {
+      value: "Honduras",
+      text: "Honduras"
+    },
+    {
+      value: "Hungary",
+      text: "Hungary"
+    },
+    {
+      value: "Iceland",
+      text: "Iceland"
+    },
+    {
+      value: "India",
+      text: "India"
+    },
+    {
+      value: "Indonesia",
+      text: "Indonesia"
+    },
+    {
+      value: "Iran",
+      text: "Iran"
+    },
+    {
+      value: "Iraq",
+      text: "Iraq"
+    },
+    {
+      value: "Ireland",
+      text: "Ireland"
+    },
+    {
+      value: "Israel",
+      text: "Israel"
+    },
+    {
+      value: "Italy",
+      text: "Italy"
+    },
+    {
+      value: "Ivory Coast",
+      text: "Ivory Coast"
+    },
+    {
+      value: "Jamaica",
+      text: "Jamaica"
+    }
+     
+  ]
+
+  
+}) }}
+
+
+
+ 
+{{ govukButton({
+  text: "Continue"
+}) }}
+  
+</form>
+   
+
+   
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+{{super()}}
+<script> 
+accessibleAutocomplete.enhanceSelectElement({
+  selectElement: document.querySelector('.countryAutocomplete')
+})
+
+
+</script>
+{% endblock %}

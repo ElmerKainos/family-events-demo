@@ -18,3 +18,23 @@ router.post ('/new/code', (req,res) => {
 router.post ('/new/name', (req,res) => {
     res.redirect('/new/country')
 })
+
+router.post ('/new/country', (req,res) => {
+    res.redirect('/new/familysize')
+})
+
+
+
+router.post ('/new/familySize', (req,res) => {
+
+if (req.body.new.familySize == 'None'){
+res.redirect('/new/nonemembers')
+
+} else {
+    res.redirect('/new/familymembers')
+}  
+})
+
+router.post ('/new/familymembers', (req,res) => {
+    res.redirect('/new/familyinterests')
+})

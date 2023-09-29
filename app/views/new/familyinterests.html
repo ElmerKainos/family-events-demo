@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'What are your family favorite activities?' %}
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+
+
+<form novalidate method="post"> 
+{% set otherInput %}
+{{ govukInput({
+  id: "[new][otherinterests]",
+  name: "[new][otherinterests]",
+  label: {
+    text: "Other",
+    classes: "govuk-label--s"
+  },
+ 
+  value: data.new.otherinterest
+}) }}
+
+
+
+
+{% endset %}
+
+  {{ govukCheckboxes({
+    idPrefix: "[new][interests]",
+    name: "[new][interests]",
+
+    fieldset: {
+      legend: {
+        text: pageName ,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "Select all that apply."
+    },
+    items: [
+      {
+        value: "Family adventures",
+        text: "Family adventures"
+      },
+      {
+        value: "Seasonal events",
+        text: "Seasonal events"
+      },
+      {
+        value: "Sport events",
+        text: "Sport events"
+      }, 
+      {
+        value: "Other",
+        text: "Other" ,
+        conditional : {
+          html : otherInput
+        }
+      }
+    ]
+  }) }}
+
+
+ 
+{{ govukButton({
+  text: "Continue"
+}) }}
+  
+</form>
+   
+
+   
+  </div>
+</div>
+
+{% endblock %}
+
+

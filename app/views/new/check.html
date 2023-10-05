@@ -1,0 +1,165 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = 'Check details and send your application' %}
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l"> {{pageName}}
+  
+</h1>
+
+{% set favoriteActivities %}
+<ul class="govuk-list govuk-list--bullet">
+  {%for item in data.new.interests %}
+  <li>
+    {{item}}
+    {% if item == 'Other' %}
+    - {{data.new.otherinterests}}
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endset %}
+
+
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Your email address"
+      },
+      value: {
+        text: data.new.emailAddress
+      },
+      actions: {
+        items: [
+          {
+            href: "email-address?returnUrl=/new/check",
+            text: "Change",
+            visuallyHiddenText: "Your email address"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Your name "
+      },
+      value: {
+        text: data.new.firstName + ' ' + data.new.lastName
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/name?returnUrl=/new/check",
+            text: "Change",
+            visuallyHiddenText: "your name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Your country"
+      },
+      value: {
+        text: data.new.country
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/country?returnUrl=/new/check",
+            text: "Change",
+            visuallyHiddenText: "your country"
+          }
+        ]
+      }
+    } ,
+    {
+      key: {
+        text: "How many children your family has?"
+      },
+      value: {
+        text: data.new.familySize
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/familysize?returnUrl=/new/check",
+            text: "Change",
+            visuallyHiddenText: "your family number of children"
+          }
+        ]
+      }
+    }, 
+    {
+      key: {
+        text: "What is your most favorite family event?"
+      },
+      value: {
+        text: data.new.favoriteEvent | nl2br | safe
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/familymembers?returnUrl=/new/check",
+            text: "Change",
+            visuallyHiddenText: "your most favorite family event"
+          }
+        ]
+      }
+    } ,
+    {
+      key: {
+        text: "What are your family favorite activities?"
+      },
+      value: {
+        html: favoriteActivities
+      },
+      actions: {
+        items: [
+          {
+            href: "/new/familyinterests?returnUrl=/new/check",
+            text: "Change",
+            visuallyHiddenText: "the favorite family event"
+          }
+        ]
+      }
+    }
+    
+  ]
+}) }}
+
+<p> By submitting this application you're confirm that, to the best to your kniowledge, the details you are providing are correct.</p>
+
+
+
+
+<form novalidate method="post"> 
+{{ govukButton({
+  text: "Accept and send application"
+}) }}
+  
+</form>
+   
+
+   
+  </div>
+</div>
+
+{% endblock %}
+
+

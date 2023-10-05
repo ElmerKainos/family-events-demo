@@ -8,7 +8,10 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 router.post ('/new/email-address', (req,res) => {
-    res.redirect('/new/code')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+            } else {
+    res.redirect('/new/code')}
 })
 
 router.post ('/new/code', (req,res) => {
@@ -16,25 +19,42 @@ router.post ('/new/code', (req,res) => {
 })
 
 router.post ('/new/name', (req,res) => {
-    res.redirect('/new/country')
+    if(req.query.returnUrl) {
+res.redirect(req.query.returnUrl)
+    } else {
+    res.redirect('/new/country')}
 })
 
 router.post ('/new/country', (req,res) => {
-    res.redirect('/new/familysize')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+            } else {
+    res.redirect('/new/familysize')}
 })
 
 
 
 router.post ('/new/familySize', (req,res) => {
-
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+            } else {
 if (req.body.new.familySize == 'None'){
 res.redirect('/new/nonemembers')
 
 } else {
-    res.redirect('/new/familymembers')
+    res.redirect('/new/familymembers')}
 }  
 })
 
 router.post ('/new/familymembers', (req,res) => {
-    res.redirect('/new/familyinterests')
+    if(req.query.returnUrl) {
+        res.redirect(req.query.returnUrl)
+            } else {
+    res.redirect('/new/familyinterests')}
+})
+router.post ('/new/familyinterests', (req,res) => {
+    res.redirect('/new/check')
+})
+router.post ('/new/check', (req,res) => {
+    res.redirect('/new/confirmation')
 })
